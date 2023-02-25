@@ -3,7 +3,6 @@ from django_filters.rest_framework import DjangoFilterBackend, FilterSet, Number
 from rest_framework.response import Response
 from .models import Task, TaskHistory
 from .serializers import TaskSerializer, TaskHistorySerializer
-import datetime
 
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
