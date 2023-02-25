@@ -1,5 +1,6 @@
 from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.response import Response
 
 from .models import Task, TaskHistory
 from .serializers import TaskSerializer, TaskHistorySerializer
@@ -13,6 +14,25 @@ class TaskViewSet(viewsets.ModelViewSet):
     search_fields = ['name', 'description']
     ordering_fields = ['id', 'name', 'description', 'status', 'assigned_user']
     filterset_fields = ['assigned_user', 'status'] 
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+
+        TaskHistory.objects.create(
+                task=instance,
+                name=instance.name,
+                description=instance.description,
+                status=instance.status,
+                assigned_user=instance.assigned_user,
+                valid_from=instance.created_at,
+            )
+
+        self.perform_update(serializer)
+
+        return Response(serializer.data)
 
 class TaskHistoryViewSet(viewsets.ModelViewSet):
     queryset = TaskHistory.objects.all()
