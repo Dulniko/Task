@@ -1,10 +1,9 @@
 from rest_framework import viewsets, filters
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend, FilterSet, NumberFilter
 from rest_framework.response import Response
-
 from .models import Task, TaskHistory
 from .serializers import TaskSerializer, TaskHistorySerializer
-
+import datetime
 
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
@@ -34,10 +33,22 @@ class TaskViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
 
-class TaskHistoryViewSet(viewsets.ModelViewSet):
+
+class TaskHistoryFilter(FilterSet):
+    task = NumberFilter(field_name='task__id')
+    
+    class Meta:
+        model = TaskHistory
+        fields = {
+        'task': ['exact'],
+        'valid_from': ['lte'],
+        'valid_until': ['gte'],
+    }
+
+
+class TaskHistoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = TaskHistory.objects.all()
     serializer_class = TaskHistorySerializer
 
-
-    
-
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = TaskHistoryFilter
