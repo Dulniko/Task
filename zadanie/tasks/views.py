@@ -3,10 +3,13 @@ from django_filters.rest_framework import DjangoFilterBackend, FilterSet, Number
 from rest_framework.response import Response
 from .models import Task, TaskHistory
 from .serializers import TaskSerializer, TaskHistorySerializer
+from .permissions import IsOwnerOrReadOnly
 
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+    permission_classes = [IsOwnerOrReadOnly]
 
     filter_backends = [filters.SearchFilter, filters.OrderingFilter, DjangoFilterBackend]
     search_fields = ['name', 'description']
