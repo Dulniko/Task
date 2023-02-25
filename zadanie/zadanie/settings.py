@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     "tasks.apps.TasksConfig",
     'django_filters',
     'register.apps.RegisterConfig',
-    'crispy_forms',
-    "crispy_bootstrap5",
 ]
 
 REST_FRAMEWORK = {
@@ -136,9 +134,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
-
-CRISPY_ALLOWED_TEMPLATE_PACK = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
