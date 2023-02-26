@@ -5,6 +5,8 @@
 __pycache__
 db.sqlite3
 media
+db.sql
+data
 
 # Backup files # 
 *.bak 
@@ -16,6 +18,10 @@ media
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+# Pliki dockerowe
+Dockerfile
+docker-compose.yml
 
 # AWS User-specific
 .idea/**/aws.xml
