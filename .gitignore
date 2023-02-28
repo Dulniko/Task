@@ -19,10 +19,6 @@ data
 .idea/**/dictionaries
 .idea/**/shelf
 
-# Pliki dockerowe
-Dockerfile
-docker-compose.yml
-
 # AWS User-specific
 .idea/**/aws.xml
 

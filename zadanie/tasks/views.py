@@ -1,5 +1,5 @@
 from rest_framework import viewsets, filters
-from django_filters.rest_framework import DjangoFilterBackend, FilterSet, NumberFilter
+from django_filters.rest_framework import DjangoFilterBackend, FilterSet, NumberFilter, RangeFilter
 from rest_framework.response import Response
 from .models import Task, TaskHistory
 from .serializers import TaskSerializer, TaskHistorySerializer
@@ -14,7 +14,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter, DjangoFilterBackend]
     search_fields = ['name', 'description']
     ordering_fields = ['id', 'name', 'description', 'status', 'assigned_user']
-    filterset_fields = ['assigned_user', 'status'] 
+    filterset_fields = ['id', 'name', 'description', 'status', 'assigned_user'] 
 
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
