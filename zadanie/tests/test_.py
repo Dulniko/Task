@@ -129,5 +129,44 @@ def test_Task_update(user, task):
     task = Task.objects.values().get(id=response.json()["id"])
     assert task == expected_task_data
 
+@freeze_time("2022-02-22 13:00:00")
+@pytest.mark.django_db
+def test_Task_update_unauthorized(user, task):
 
+    data = {
+        'name': 'Updated Task',
+        'description': 'This is an updated test task',
+        'status': 'Resolved',
+        'assigned_user': None
+    }
+
+    client = APIClient()
+    url = reverse('tasks-detail', args=[task.id])
+    response = client.patch(url, data, format='json')
+
+    assert response.status_code == 403
     
+    assert TaskHistory.objects.filter(task=task).count() == 0
+
+
+#delete
+
+
+@pytest.mark.django_db
+def test_Task_delete(user, task):
+    client = APIClient()
+    url = reverse('tasks-detail', args=[task.id])
+    client.force_authenticate(user=user)
+    
+    response = client.delete(url)
+    assert response.status_code == 204
+    assert not Task.objects.filter(id=task.id).exists()
+
+@pytest.mark.django_db
+def test_Task_delete_unauthorized(task):
+    client = APIClient()
+    url = reverse('tasks-detail', args=[task.id])
+    
+    response = client.delete(url)
+    assert response.status_code == 403
+    assert Task.objects.filter(id=task.id).exists()
