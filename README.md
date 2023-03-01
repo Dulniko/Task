@@ -5,6 +5,7 @@
 * [Wymagania](#wymagania)
 * [Instalacja](#Instalacja)
 * [Użytkowanie](#Użytkowanie)
+* [Rejestracja i logowanie](#Rejestracja)
 * [Testy](#Testy)
 
 ## Wymagania
@@ -206,6 +207,12 @@ Przykładowa odpowiedź:
 - task - id zadania, którego dotyczy wpis w historii zmian (np. /history/?task=1)
 - valid_from - pobiera wpisy w historii zmian z datą od określonej wartości (np. /history/?valid_from=2022-01-01)
 - valid_until - pobiera wpisy w historii zmian do daty określonej wartości (np. /history/?valid_until=2022-01-01)
+
+## Rejestracja
+Aplikacja umożliwia rejestrację i logowanie użytkowników pod końcówkami url
+- /register
+- /login
+- /logout
 
 ## Testy
 Aby uruchomić testy, użyj komendy
