@@ -28,9 +28,10 @@ Aplikacja będzie dostępna pod adresem http://127.0.0.1:8000/
 
 ## Uruchomienie z użyciem dockera
 1. Upewnij się czy masz zainstalowanego dockera/docker-compose, jeśli nie przejdź na adres https://docs.docker.com/desktop/ i postępuj zgodnie z instrukcjami instalacji opisanymi na stronie w zależności od twojego systemu operacyjnego.
-2. Wykonaj migrację bazy: 
+2. Skonfiguruj plik docker-compose.yml dodając plik .env w którym zdefiniujesz zmienne bądź zdefiniuj je bezpośrednio w pliku aby uzyskać dostęp do bazy danych.  
+3. Wykonaj migrację bazy: 
 docker-compose run web python manage.py migrate
-3. Uruchom kontenery a tym samym serwer:
+4. Uruchom kontenery a tym samym serwer:
 docker-compose up
 
 ## Użytkowanie
