@@ -5,6 +5,7 @@
 * [Wymagania](#wymagania)
 * [Instalacja](#Instalacja)
 * [Użytkowanie](#Użytkowanie)
+* [Testy](#Testy)
 
 ## Wymagania
 Do uruchomienia aplikacji potrzebny jest zainstalowany Python 3.8 lub nowszy oraz baza danych PostgreSQL.
@@ -206,3 +207,9 @@ Przykładowa odpowiedź:
 - valid_from - pobiera wpisy w historii zmian z datą od określonej wartości (np. /history/?valid_from=2022-01-01)
 - valid_until - pobiera wpisy w historii zmian do daty określonej wartości (np. /history/?valid_until=2022-01-01)
 
+## Testy
+Aby uruchomić testy, użyj komendy
+```
+pytest
+```
+w katalogu aplikacji
