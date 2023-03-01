@@ -65,7 +65,7 @@ Przykładowa odpowiedź:
 
 Przykładowa odpowiedź:
 ```
->[{"id":1,"name":"test","description":"test1","status":"New","assigned_user":null,"created_at":"2023-03-01 15:10:42"},{"id":3,"name":"test3","description":"test3.2","status":"New","assigned_user":1,"created_at":"2023-03-01 15:14:22"}]
+[{"id":1,"name":"test","description":"test1","status":"New","assigned_user":null,"created_at":"2023-03-01 15:10:42"},{"id":3,"name":"test3","description":"test3.2","status":"New","assigned_user":1,"created_at":"2023-03-01 15:14:22"}]
 ```
 ## 2. Pobierz szczegóły zadania
 ### a)GET /tasks/{id}/
@@ -132,17 +132,17 @@ Przykładowa odpowiedź:
 ### DELETE /tasks/{id}/
 
 ## Parametry do filtrowania:
-id - id zadania (np. /tasks/?id=1)
-name - nazwa zadania (np. /tasks/?name=Zadanie1)
-description - opis zadania (np. /tasks/?description=Opis1)
-status - status zadania (np. /tasks/?status=New)
-assigned_user - id użytkownika przypisanego do zadania (np. /tasks/?assigned_user=1)
+- id - id zadania (np. /tasks/?id=1)
+- name - nazwa zadania (np. /tasks/?name=Zadanie1)
+- description - opis zadania (np. /tasks/?description=Opis1)
+- status - status zadania (np. /tasks/?status=New)
+- assigned_user - id użytkownika przypisanego do zadania (np. /tasks/?assigned_user=1)
 
 ## Sortowanie:
-ordering - pozwala na sortowanie po wybranym polu (np. /tasks/?ordering=name)
+- ordering - pozwala na sortowanie po wybranym polu (np. /tasks/?ordering=name)
 
 ## Wyszukiwanie:
-search - pozwala na wyszukiwanie w polach name i description (np. /tasks/?search=Zadanie1)
+- search - pozwala na wyszukiwanie w polach name i description (np. /tasks/?search=Zadanie1)
 
 
 # Przykładowe odpytania końcowe /history
@@ -202,6 +202,7 @@ Przykładowa odpowiedź:
 }
 ```
 ## Parametry do filtrowania:
-task - id zadania, którego dotyczy wpis w historii zmian (np. /history/?task=1)
-valid_from - pobiera wpisy w historii zmian z datą od określonej wartości (np. /history/?valid_from=2022-01-01)
-valid_until - pobiera wpisy w historii zmian do daty określonej wartości (np. /history/?valid_until=2022-01-01)
+- task - id zadania, którego dotyczy wpis w historii zmian (np. /history/?task=1)
+- valid_from - pobiera wpisy w historii zmian z datą od określonej wartości (np. /history/?valid_from=2022-01-01)
+- valid_until - pobiera wpisy w historii zmian do daty określonej wartości (np. /history/?valid_until=2022-01-01)
+
