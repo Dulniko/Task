@@ -6,10 +6,10 @@
 * [Instalacja](#Instalacja)
 * [Użytkowanie](#Użytkowanie)
 
-# Wymagania
+## Wymagania
 Do uruchomienia aplikacji potrzebny jest zainstalowany Python 3.8 lub nowszy oraz baza danych PostgreSQL.
 
-# Instalacja
+## Instalacja
 1. Sklonuj repozytorium aplikacji.
 2. Utwórz wirtualne środowisko Pythona, np:
 python -m venv venv
@@ -24,14 +24,14 @@ python manage.py migrate
 python manage.py runserver
 Aplikacja będzie dostępna pod adresem http://127.0.0.1:8000/
 
-# Uruchomienie z użyciem dockera
-1. Upewnij się czy masz zainstalowanego dockera/docker-compose.
+## Uruchomienie z użyciem dockera
+1. Upewnij się czy masz zainstalowanego dockera/docker-compose, jeśli nie przejdź na adres https://docs.docker.com/desktop/ i postępuj zgodnie z instrukcjami instalacji opisanymi na stronie w zależności od twojego systemu operacyjnego.
 2. Wykonaj migrację bazy: 
 docker-compose run web python manage.py migrate
 3. Uruchom kontenery a tym samym serwer:
 docker-compose up
 
-# Użytkowanie
+## Użytkowanie
 API składa się z dwóch końcówek 
 - /tasks 
 - /history
@@ -145,7 +145,7 @@ Przykładowa odpowiedź:
 - search - pozwala na wyszukiwanie w polach name i description (np. /tasks/?search=Zadanie1)
 
 
-# Przykładowe odpytania końcowe /history
+## Przykładowe odpytania końcowe /history
 
 ## 1. Pobiera wszystkie wpisy w historii zmian w zadaniach
 ### GET /history/ 
