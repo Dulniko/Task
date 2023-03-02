@@ -216,7 +216,8 @@ Aplikacja umożliwia rejestrację i logowanie użytkowników pod końcówkami ur
 - /logout
 
 ## Testy
-Aby uruchomić testy, użyj komendy
+Skonfiguruj bezpośrednio plik test_settings.py, bądź zdefiniuj zmienne w .env, aby testy miały dostęp do bazy. (zostaw jedynie localhost).
+Następnie aby uruchomić testy, użyj komendy
 ```
 pytest
 ```
